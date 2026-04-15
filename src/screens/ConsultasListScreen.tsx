@@ -45,8 +45,9 @@ export default function ConsultasListScreen({ navigation }: any) {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.filtros}>
-        {["todas", "agendada", "confirmada"].map((item) => (
+        {["todas", "agendada", "confirmada", "cancelada"].map((item) => (
           <TouchableOpacity
             key={item}
             style={[

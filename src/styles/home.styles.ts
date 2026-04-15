@@ -3,62 +3,98 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#eef1f6",
   },
+
   scrollContent: {
     padding: 20,
+    paddingBottom: 50,
   },
+
   header: {
-    marginBottom: 32,
-    alignItems: "center",
+    marginBottom: 30,
   },
+
   titulo: {
     fontSize: 28,
-    fontWeight: "bold",
-    color: "#79059C",
-    marginBottom: 8,
+    fontWeight: "800",
+    color: "#111827",
   },
+
   subtitulo: {
-    fontSize: 16,
-    color: "#666",
+    fontSize: 15,
+    color: "#6b7280",
+    marginTop: 4,
   },
+
   menu: {
     gap: 16,
   },
+
   card: {
-    padding: 24,
-    borderRadius: 16,
+    borderRadius: 20,
+    padding: 18,
+    backgroundColor: "#fff",
+    flexDirection: "row",
+    alignItems: "center",
+
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 5,
   },
+
+
   cardPrimario: {
-    backgroundColor: "#79059C",
+    borderLeftWidth: 6,
+    borderLeftColor: "#7c3aed",
   },
+
   cardSecundario: {
-    backgroundColor: "#4CAF50",
+    borderLeftWidth: 6,
+    borderLeftColor: "#22c55e",
   },
+
   cardTerciario: {
-    backgroundColor: "#2196F3",
+    borderLeftWidth: 6,
+    borderLeftColor: "#3b82f6",
   },
+
   cardQuaternario: {
-    backgroundColor: "#FF9800",
+    borderLeftWidth: 6,
+    borderLeftColor: "#f59e0b",
   },
+
+
   cardIcone: {
-    fontSize: 48,
-    marginBottom: 12,
+    fontSize: 22,
   },
+
+  iconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: "#f3f4f6",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 14,
+  },
+
+  textContainer: {
+    flex: 1,
+  },
+
   cardTitulo: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 8,
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#111827",
+    marginBottom: 4,
   },
+
   cardDescricao: {
-    fontSize: 14,
-    color: "#fff",
-    opacity: 0.9,
+    fontSize: 13,
+    color: "#6b7280",
+    lineHeight: 18,
   },
 });
