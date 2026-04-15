@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView, Button, Alert } from "react-native";
+import { View, Text, ScrollView, Button } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Consulta } from "../interfaces/consulta";
-import { ConsultaCard } from "../components";
-import { styles } from "../styles/app.styles";
+import {ConsultaCard} from "../components/ConsultaCard";
+import { styles } from "../styles/home.styles";
 import { obterConsultas, salvarConsultas } from "../services/storage";
 
 export default function Home({ navigation }: any) {
@@ -20,37 +19,39 @@ export default function Home({ navigation }: any) {
   }
 
   async function confirmarConsulta(consultaId: number) {
-    const consultasAtualizadas = consultas.map((c) =>
+    const atualizadas = consultas.map((c) =>
       c.id === consultaId ? { ...c, status: "confirmada" as const } : c
     );
-    setConsultas(consultasAtualizadas);
-    await salvarConsultas(consultasAtualizadas);
+    setConsultas(atualizadas);
+    await salvarConsultas(atualizadas);
   }
 
   async function cancelarConsulta(consultaId: number) {
-    const consultasAtualizadas = consultas.map((c) =>
+    const atualizadas = consultas.map((c) =>
       c.id === consultaId ? { ...c, status: "cancelada" as const } : c
     );
-    setConsultas(consultasAtualizadas);
-    await salvarConsultas(consultasAtualizadas);
+    setConsultas(atualizadas);
+    await salvarConsultas(atualizadas);
   }
 
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
+
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <Text style={styles.titulo}>Minhas Consultas</Text>
           <Text style={styles.subtitulo}>
-            {consultas.length} consulta(s) agendada(s)
+            {consultas.length} consulta(s)
           </Text>
         </View>
 
         {consultas.length === 0 ? (
-          <View style={{ padding: 20, alignItems: "center" }}>
-            <Text style={{ color: "#666", marginBottom: 20 }}>
-              Nenhuma consulta agendada ainda
+          <View style={styles.empty}>
+            <Text style={styles.emptyText}>
+              Nenhuma consulta cadastrada
             </Text>
+
             <Button
               title="Ir para Admin"
               onPress={() => navigation.navigate("Admin")}
